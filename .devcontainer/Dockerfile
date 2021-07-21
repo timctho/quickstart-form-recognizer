@@ -9,8 +9,8 @@ ARG INSTALL_NODE="true"
 ARG NODE_VERSION="lts/*"
 RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-# RUN git-lfs install
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN apt-get update && apt-get install -y --allow-unauthenticated git-lfs && git lfs install
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp/pip-tmp/
