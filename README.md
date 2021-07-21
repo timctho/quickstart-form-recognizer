@@ -1,1 +1,1 @@
-# quickstart-form-recognizer-invoice
+# quickstart-form-recognizer
